@@ -1,8 +1,8 @@
-//Example 1.2 line 1...Step 3: Add circle markers for point features to the map
+//Add circle markers on the map
 function createPropSymbols(data){
 
-    //Step 4: Determine which attribute to visualize with proportional symbols
-    var attribute = "bike";
+    //an attribute to see with the prop symbols
+    var attribute = "city";
 };
 
 
@@ -44,15 +44,11 @@ function getData(map){
            //create a Leaflet GeoJSON layer and add it to the map
             L.geoJson(response, {
                 pointToLayer: function (feature, latlng){
-					//Step 5: For each feature, determine its value for the selected attribute
+					// value for the attribute
 					var attValue = Number(feature.properties.Dec15);
                     
-					//Step 6: Give each feature's circle marker a radius based on its attribute value
-					geojsonMarkerOptions.radius = calcPropRadius(attValue);
-					
-					//examine the attribute value to check that it is correct
-					console.log(feature.properties, attValue);
-					
+					//a feature's circle marker a radius based on its attribute value
+					geojsonMarkerOptions.radius = calcPropRadius(attValue);					
 
 					
 					//makes circle markers on the map
